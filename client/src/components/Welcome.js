@@ -1,6 +1,6 @@
 import React from "react";
 
-class Root extends React.Component {
+class Welcome extends React.Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Root extends React.Component {
   }
 }
 
-export default Root;
+export default Welcome;
