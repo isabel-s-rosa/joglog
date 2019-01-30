@@ -4,7 +4,9 @@ class Welcome extends React.Component {
   render() {
     return (
       <div>
-        Root
+        <div id="welcome-image">
+          <div id="enter-text" className="center">enter</div>
+        </div>
       </div>
     )
     ;

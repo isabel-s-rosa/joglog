@@ -13,7 +13,6 @@ module.exports = {
   },
   module: {
     rules: [
-
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
@@ -29,6 +28,15 @@ module.exports = {
             loader: 'css-loader',
           }
         ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
       }
     ]
   },
@@ -39,6 +47,7 @@ module.exports = {
     contentBase: './client/dist',
     hot: true,
     proxy: {
+      '/': 'http://localhost:3000',
       '/api': 'http://localhost:3000',
     }
   }

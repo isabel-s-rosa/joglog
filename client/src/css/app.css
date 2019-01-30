@@ -7,8 +7,18 @@ body {
     height: 100%;
 }
 
-#root {
-    height: 100%;
+#welcome-image {
+    background-image: url("../assets/runner2.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+}
+
+#enter-text {
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
 }
 
 .center{
