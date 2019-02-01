@@ -7,6 +7,9 @@ const io = require("socket.io")(http);
 
 const publicPath = path.resolve(__dirname, "..", "client", "dist");
 
+app.get(["/login"], (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
+});
 
 app.use(express.static(publicPath));
 

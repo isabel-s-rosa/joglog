@@ -7,29 +7,101 @@ body {
     height: 100%;
 }
 
+#container {
+    display: inline;
+}
+
 #welcome-image {
-    background-image: url("../assets/runner2.jpg");
+    background: url("../assets/runner2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     height: 100vh;
     width: 100vw;
-    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
-#enter-text {
+#joglog-text {
     font-size: 100px;
     font-weight: bold;
     color: white;
+    font-family: 'Helvetica Neue';
 }
 
-.center{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+#joglog-box{
+    height: 100px;
     text-align: center;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-
+    margin-top: 70px;
 }
 
+#login-button {
+    font-size: 30px;
+    color: white;
+    font-family: 'Helvetica Neue';
+    margin: auto;
+    margin-top: 110px;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 10px;
+    border-width: 3px;
+    width: 150px;
+    text-align: center;
+}
+
+#login-button:hover {
+    cursor: grab;
+}
+
+#input-form {
+    margin: 50px;
+    text-align: center;
+}
+
+.form-label {
+    margin-right: 50px;
+}
+
+#form-div {
+    margin: auto;
+    margin-top: 75px;
+    text-align: center;
+    width: 500px;
+    margin-bottom: 75px;
+}
+
+.text-input-box {
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-radius: 7px;
+    border-width: 2px;
+    width: 85%;
+    float: right;
+}
+
+.prompt-text {
+    font-family: 'Helvetica Neue';
+    color: white;
+    font-size: 20px;
+}
+
+#signin-button {
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-radius: 7px;
+    border-width: 2px;
+    font-family: 'Helvetica Neue';
+    color: white;
+    font-size: 20px;
+    position: relative;
+    top: 50px;
+    width: 100px;
+}
+
+#signin-button:hover {
+    cursor: grab;
+}
