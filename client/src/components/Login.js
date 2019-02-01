@@ -4,9 +4,26 @@ import Link from "react-router-dom/es/Link";
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+        link: null,
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    this.props.login(document.getElementById("email").value, document.getElementById("password").value);
+  }
+
+  componentDidMount() {
+      let link_modal = (<Link to="/login" onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</Link>);
+      this.setState({
+          link: link_modal,
+      });
   }
 
   render() {
+    const link_modal = this.state.link;
     return (
     <div id="container">
         <div id="welcome-image">
@@ -16,16 +33,16 @@ class Login extends React.Component {
                 <div className="form-group row">
                     <label className="col-sm-2 prompt-text">email:</label>
                     <div className="col-sm-10 input-box">
-                        <input className="form-control text-input-box"/>
+                        <input id="email" className="form-control text-input-box"/>
                     </div>
                 </div>
                 <div className="form-group row">
                     <label className="col-sm-2 prompt-text">password:</label>
                     <div className="col-sm-10 input-box">
-                        <input className="form-control text-input-box"/>
+                        <input id="password" className="form-control text-input-box"/>
                     </div>
                 </div>
-                <Link to="/login" id="signin-button" className="btn btn-dark">enter</Link>
+                {link_modal}
             </form>
             </div>
         </div>
