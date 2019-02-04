@@ -85,38 +85,6 @@ app.get('/api/users', function(req, res) {
   });
 });
 
-app.post('/api/users', function(req, res) {
-  console.log(req.isAuthenticated());
-  res.send({});
-});
-
-app.get('/test', function(req, res){
-
-  let hi={name:"hi", last: "last"};
-  res.send({hi});
-});
-
-app.post(
-  '/test2',
-  function(req, res) {
-      const user = new User({
-          'name': 'test name',
-          'email': 'test-email',
-          'password': 'test-pword'
-      });
-      user.save(function(err, users) {
-     res.send('sent something');
-}
-);
-  });
-
-app.post('/test3', function(req, res){
-  User.findOne({ email: req.body.email }, function(err, user) {
-    console.log(user);
-    res.sendFile(path.join(publicPath, "index.html"));
-  });
-});
-
 app.use(express.static(publicPath));
 
 // 404 route

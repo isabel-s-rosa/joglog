@@ -51,9 +51,7 @@ module.exports = {
       '/api': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
       '/api/users': 'http://localhost:3000',
-      '/test': 'http://localhost:3000',
       '/api/whoami': 'http://localhost:3000',
-      '/success': 'http://localhost:3000',
     }
   }
 };

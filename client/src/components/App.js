@@ -27,7 +27,6 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/login" render={() => <Login login = {this.login} />} />
-          <Route exact path="/success" component={Welcome} />
         </Switch>
       </div>
     )
