@@ -32,12 +32,6 @@ app.get(["/login", "/", "/success"], (req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
 
-app.use(express.static(publicPath));
-
-http.listen(3000, () => {
-  console.log(`Listening on port 3000 and looking in folder ${publicPath}`);
-});
-
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
@@ -81,10 +75,8 @@ else {
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
-    console.log('got here2');
-    console.log(req.isAuthenticated());
-    res.send({});
-    console.log(req.isAuthenticated());
+    res.redirect('/');
+    res.body = '/';
   });
 
 app.get('/api/users', function(req, res) {
@@ -123,4 +115,26 @@ app.post('/test3', function(req, res){
     console.log(user);
     res.sendFile(path.join(publicPath, "index.html"));
   });
+});
+
+app.use(express.static(publicPath));
+
+// 404 route
+app.use(function(req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// route error handler
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.send({
+    status: err.status,
+    message: err.message,
+  });
+});
+
+http.listen((process.env.PORT || 3000), () => {
+  console.log(`Listening on port 3000 and looking in folder ${publicPath}`);
 });

@@ -6,6 +6,7 @@ class Login extends React.Component {
     super(props);
     this.state = {
         link: null,
+        address: '/login'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,26 +20,24 @@ class Login extends React.Component {
       headers: {
           'Content-type': 'application/json'
       },
-      body: JSON.stringify(body)
-    });
+      body: JSON.stringify(body),
+    }).then(
+        res => {
+            this.setState({
+                address: res.body,
+            });
+        }
+    );
   }
 
   componentDidMount() {
-      let link_modal = (<Link to="/login" onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</Link>);
+      let link_modal = (<Link to={this.state.address} onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</Link>);
       this.setState({
           link: link_modal,
       });
   }
 
   render() {
-    const body = {email: "l", password: "k"};
-    fetch('/api/users', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(body)
-      });
     const link_modal = this.state.link;
     return (
     <div id="container">
@@ -58,7 +57,7 @@ class Login extends React.Component {
                         <input name="password" id="password" className="form-control text-input-box"/>
                     </div>
                 </div>
-                <button onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</button>
+                {link_modal}
             </form>
             </div>
         </div>
