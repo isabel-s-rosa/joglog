@@ -29,7 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get(["/login", "/", "/success"], (req, res) => {
+app.get(["/login", "/", "/failedlogin"], (req, res) => {
   console.log(req.isAuthenticated());
   res.sendFile(path.join(publicPath, "index.html"));
 });
@@ -75,11 +75,10 @@ else {
 })
 
 app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('local', { failureRedirect: '/failedlogin' }),
   function(req, res) {
-    res.body = {redirect: '/'};
-    console.log(res.body);
-    res.send({redirect: '/'});
+      res.send({redirect: '/'});
+      console.log(res.redirect);
   });
 
 app.get('/api/users', function(req, res) {

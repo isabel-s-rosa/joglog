@@ -12,6 +12,7 @@ class Login extends React.Component {
   }
 
   handleSubmit() {
+    this.props.login(document.getElementById("email").value, document.getElementById("password").value);
     const body = {email: document.getElementById("email").value, password: document.getElementById("password").value};
     fetch('/login', {
       method: 'POST',
@@ -25,7 +26,7 @@ class Login extends React.Component {
         res => {
             window.location.href = res.redirect;
         }
-    );
+    ).catch(error=>window.location.href='/failedlogin');
   }
 
   componentDidMount() {

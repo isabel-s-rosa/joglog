@@ -4,6 +4,7 @@ import Route from "react-router-dom/es/Route";
 import Switch from "react-router-dom/es/Switch";
 import Welcome from "./Welcome";
 import Login from "./Login";
+import FailedLogin from "./FailedLogin";
 
 class App extends React.Component {
   constructor(props){
@@ -27,6 +28,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/login" render={() => <Login login = {this.login} />} />
+          <Route exact path="/failedlogin" render={() => <FailedLogin />} />
         </Switch>
       </div>
     )
