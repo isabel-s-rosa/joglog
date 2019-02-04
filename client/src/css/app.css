@@ -31,10 +31,23 @@ body {
     font-family: 'Helvetica Neue';
 }
 
+#message-text {
+    font-size: 25px;
+    font-weight: normal;
+    color: white;
+    font-family: 'Helvetica Neue';
+}
+
 #joglog-box{
     height: 100px;
     text-align: center;
     margin-top: 70px;
+}
+
+#failed-box{
+    height: 80px;
+    text-align: center;
+    margin-top: 145px;
 }
 
 #login-button {
@@ -46,8 +59,22 @@ body {
     background-color: transparent;
     border-color: white;
     border-radius: 10px;
-    border-width: 3px;
+    border-width: 2px;
     width: 150px;
+    text-align: center;
+}
+
+#back-button {
+    font-size: 20px;
+    color: white;
+    font-family: 'Helvetica Neue';
+    margin: auto;
+    margin-top: 55px;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    width: auto;
     text-align: center;
 }
 

@@ -11,8 +11,8 @@ class FailedLogin extends React.Component {
       <div id="container">
         <div id="welcome-image">
           <div id="joglog-box"><a id="joglog-text">joglog</a></div>
-          <div><a>login failed:(</a></div>
-          <Link to="/login" id="login-button" className="btn btn-dark">back to login</Link>
+          <div id="failed-box"><a id="message-text">login failed:(</a></div>
+          <Link to="/login" id="back-button" className="btn btn-dark">back</Link>
         </div>
       </div>
     )
