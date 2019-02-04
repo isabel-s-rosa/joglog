@@ -6,7 +6,6 @@ class Login extends React.Component {
     super(props);
     this.state = {
         link: null,
-        address: '/login'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,17 +19,17 @@ class Login extends React.Component {
           'Content-type': 'application/json'
       },
       body: JSON.stringify(body),
-    }).then(
+    })
+    .then(response=>response.json())
+    .then(
         res => {
-            this.setState({
-                address: res.body,
-            });
+            window.location.href = res.redirect;
         }
     );
   }
 
   componentDidMount() {
-      let link_modal = (<Link to={this.state.address} onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</Link>);
+      let link_modal = (<Link to='/login' onClick={this.handleSubmit} id="signin-button" className="btn btn-dark">enter</Link>);
       this.setState({
           link: link_modal,
       });

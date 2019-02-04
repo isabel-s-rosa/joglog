@@ -13,6 +13,8 @@ const publicPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(express.static(publicPath));
+
 const User = require('./models/user');
 
 var passport = require('passport')
@@ -75,8 +77,9 @@ else {
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/');
-    res.body = '/';
+    res.body = {redirect: '/'};
+    console.log(res.body);
+    res.send({redirect: '/'});
   });
 
 app.get('/api/users', function(req, res) {
@@ -84,8 +87,6 @@ app.get('/api/users', function(req, res) {
     res.send(users);
   });
 });
-
-app.use(express.static(publicPath));
 
 // 404 route
 app.use(function(req, res, next) {
